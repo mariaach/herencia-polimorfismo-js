@@ -1,20 +1,29 @@
-export class Empleado{
+export class Empleado {
     #nombre;
     #dni;
     #salario;
-
+    #clave;
 
     constructor(nombre, dni, salario) {
         this.#nombre = nombre;
         this.#dni = dni;
         this.#salario = salario;
+        this.#clave = '';
     }
 
-    verBonificacion(){
-        return this.#salario
+    asignarClave(clave) {
+        this.#clave = clave;
     }
 
-    _verBonificacion(bono){
+    autenticable(clave) {
+        return clave == this.#clave;
+    }
+
+    verBonificion() {
+        return this.#salario;
+    }
+
+    _verBonificion(bono) {
         return this.#salario + this.#salario*bono/100;
     }
 }
